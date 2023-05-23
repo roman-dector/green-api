@@ -6,7 +6,10 @@ import {
   selectChatHistory,
   selectOpenedChat,
 } from '../../store/ducks/chat/selectors'
-import { sendMessage } from '../../store/ducks/chat/operations'
+import {
+  getForceChatHistory,
+  sendMessage,
+} from '../../store/ducks/chat/operations'
 
 export const ChatWindow: FC = () => {
   const selectedChat = useSelector(selectOpenedChat)
@@ -74,6 +77,9 @@ const MessageArea: FC = () => {
     if (selectedChat && message) {
       dispatch(sendMessage(selectedChat.id, message))
       setMessage('')
+      setTimeout(() => {
+        dispatch(getForceChatHistory(selectedChat))
+      }, 3000)
     }
   }
   return (

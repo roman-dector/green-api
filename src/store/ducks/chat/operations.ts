@@ -32,6 +32,18 @@ export const getChatHistory =
     })
   }
 
+export const getForceChatHistory =
+  (chat: ChatListItemType, count: number = 100): AppThunk =>
+  async dispatch => {
+    await chatAPI.updateChatHistory(chat.id, count)
+    dispatch(chatActions.setShouldUpdateHistory(chat.id, false))
+    chatAPI.getChat(chat.id).then(chat => {
+      if (chat) {
+        dispatch(chatActions.setChatHistory(chat.chatHistory))
+      }
+    })
+  }
+
 export const sendMessage =
   (chatId: string, message: string): AppThunk =>
   async dispatch => {
