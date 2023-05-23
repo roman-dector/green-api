@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/green-api/static/css/main.c5acfd71.css",
-    "main.js": "/green-api/static/js/main.dc24c60f.js",
+    "main.js": "/green-api/static/js/main.d43befdb.js",
     "index.html": "/green-api/index.html",
     "main.c5acfd71.css.map": "/green-api/static/css/main.c5acfd71.css.map",
-    "main.dc24c60f.js.map": "/green-api/static/js/main.dc24c60f.js.map"
+    "main.d43befdb.js.map": "/green-api/static/js/main.d43befdb.js.map"
   },
   "entrypoints": [
     "static/css/main.c5acfd71.css",
-    "static/js/main.dc24c60f.js"
+    "static/js/main.d43befdb.js"
   ]
 }
