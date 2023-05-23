@@ -1,0 +1,16 @@
+.auth-page {
+  width: 400px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.qr-code {
+  width: 100%;
+}
