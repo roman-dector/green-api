@@ -7,8 +7,8 @@ import { createPortal } from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   addChat,
-  getChatHistory,
   getChatList,
+  getForceChatHistory,
 } from '../../store/ducks/chat/operations'
 import {
   selectChatList,
@@ -60,7 +60,7 @@ const ListItem: FC<{
     <div
       onClick={() => {
         dispatch(setOpenedChat(chat.id))
-        dispatch(getChatHistory(chat))
+        dispatch(getForceChatHistory(chat.id))
       }}
       className={
         selected ? styles['list-item-selected'] : styles['list-item']

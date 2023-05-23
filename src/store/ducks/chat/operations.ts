@@ -33,15 +33,20 @@ export const getChatHistory =
   }
 
 export const getForceChatHistory =
-  (chat: ChatListItemType, count: number = 100): AppThunk =>
+  (chatId: string, count: number = 100): AppThunk =>
   async dispatch => {
-    await chatAPI.updateChatHistory(chat.id, count)
-    dispatch(chatActions.setShouldUpdateHistory(chat.id, false))
-    chatAPI.getChat(chat.id).then(chat => {
-      if (chat) {
-        dispatch(chatActions.setChatHistory(chat.chatHistory))
-      }
-    })
+    debugger
+    chatAPI
+      .updateChatHistory(chatId, count)
+      .then(() => {
+        return chatAPI.getChat(chatId)
+      })
+      .then(chat => {
+        if (chat) {
+          debugger
+          dispatch(chatActions.setChatHistory(chat.chatHistory))
+        }
+      })
   }
 
 export const sendMessage =
@@ -49,7 +54,7 @@ export const sendMessage =
   async dispatch => {
     const creds = await credsAPI.getCreds()
     if (creds) {
-      messageAPI.sendMessage(creds, { chatId, message })
+      return messageAPI.sendMessage(creds, { chatId, message })
     }
   }
 
@@ -64,30 +69,34 @@ export const startNotificationsObserver =
             if (res.data === null) {
               return null
             }
-            const openedChatId =
-              getState().chatState.chatWindow.openedChatListId
+            // const openedChatId =
+            //   getState().chatState.chatWindow.openedChatListId
 
+            debugger
             switch (res.data.body?.typeWebhook) {
               case 'incomingMessageReceived':
               case 'outgoingMessageReceived':
               case 'outgoingAPIMessageReceived':
+                debugger
                 const chatId = res.data.body.senderData.chatId
-                if (openedChatId && openedChatId === chatId) {
-                  chatAPI
-                    .updateChatHistory(chatId)
-                    .then(() => chatAPI.getChat(chatId))
-                    .then(chat => {
-                      if (chat) {
-                        dispatch(
-                          chatActions.setChatHistory(chat.chatHistory)
-                        )
-                      }
-                    })
-                } else {
-                  dispatch(
-                    chatActions.setShouldUpdateHistory(chatId, true)
-                  )
-                }
+                dispatch(getForceChatHistory(chatId))
+
+              // if (openedChatId && openedChatId === chatId) {
+              //   chatAPI
+              //     .updateChatHistory(chatId)
+              //     .then(() => chatAPI.getChat(chatId))
+              //     .then(chat => {
+              //       if (chat) {
+              //         dispatch(
+              //           chatActions.setChatHistory(chat.chatHistory)
+              //         )
+              //       }
+              //     })
+              // } else {
+              //   dispatch(
+              //     chatActions.setShouldUpdateHistory(chatId, true)
+              //   )
+              // }
             }
             return res.data.receiptId
           })

@@ -77,9 +77,9 @@ const MessageArea: FC = () => {
     if (selectedChat && message) {
       dispatch(sendMessage(selectedChat.id, message))
       setMessage('')
-      setTimeout(() => {
-        dispatch(getForceChatHistory(selectedChat))
-      }, 3000)
+      // setTimeout(() => {
+      //   dispatch(getForceChatHistory(selectedChat))
+      // }, 2000)
     }
   }
   return (

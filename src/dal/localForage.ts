@@ -67,6 +67,7 @@ export const chatAPI = {
     const creds = await credsAPI.getCreds()
     if (creds) {
       let resp = await journalAPI.getChatHistory(creds, chatId, count)
+      debugger
       let chatList = await this.getChatList()
       chatList.forEach(c => {
         if (c.id === chatId) {
