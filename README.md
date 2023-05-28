@@ -18,14 +18,14 @@
 https://vk.com/video503281581_456239250 (отправка первого сообщения занимает больше времени(~ 40 c.) чем последующие(~ 2 c.))
 
 Скриншоты:
-![](images/Screenshot%20from%202023-05-23%2017-39-28.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-39-28.png)
 
-![](images/Screenshot%20from%202023-05-23%2017-40-23.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-40-23.png)
 
-![](images/Screenshot%20from%202023-05-23%2017-40-56.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-40-56.png)
 
-![](images/Screenshot%20from%202023-05-23%2017-41-02.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-41-02.png)
 
-![](images/Screenshot%20from%202023-05-23%2017-41-35.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-41-35.png)
 
-![](images/Screenshot%20from%202023-05-23%2017-41-43.png)
+![](readme-assets/Screenshot%20from%202023-05-23%2017-41-43.png)
